@@ -727,9 +727,8 @@ describe('Test suite for testing lib.js', () => {
       });
     });
   });
-  function fibonacci(n) {
-  return (n > 2) ? fibonacci(n - 1) + fibonacci(n - 2) : 1;
-}
+  
+
 
 describe('fibonacci', () => {
   
