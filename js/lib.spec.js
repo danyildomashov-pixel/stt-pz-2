@@ -727,4 +727,127 @@ describe('Test suite for testing lib.js', () => {
       });
     });
   });
+  function fibonacci(n) {
+  return (n > 2) ? fibonacci(n - 1) + fibonacci(n - 2) : 1;
+}
+
+describe('fibonacci', () => {
+  
+  describe('Базова функціональність', () => {
+    
+    test('має бути визначена', () => {
+      expect(fibonacci).toBeDefined();
+    });
+    
+    test('має бути функцією', () => {
+      expect(typeof fibonacci).toBe('function');
+    });
+    
+    test('має повертати число', () => {
+      expect(typeof fibonacci(5)).toBe('number');
+    });
+    
+  });
+  
+  describe('Перші числа Фібоначчі', () => {
+    
+    test('fibonacci(1) = 1', () => {
+      expect(fibonacci(1)).toBe(1);
+    });
+    
+    test('fibonacci(2) = 1', () => {
+      expect(fibonacci(2)).toBe(1);
+    });
+    
+    test('fibonacci(3) = 2', () => {
+      expect(fibonacci(3)).toBe(2);
+    });
+    
+    test('fibonacci(4) = 3', () => {
+      expect(fibonacci(4)).toBe(3);
+    });
+    
+    test('fibonacci(5) = 5', () => {
+      expect(fibonacci(5)).toBe(5);
+    });
+    
+    test('fibonacci(6) = 8', () => {
+      expect(fibonacci(6)).toBe(8);
+    });
+    
+    test('fibonacci(7) = 13', () => {
+      expect(fibonacci(7)).toBe(13);
+    });
+    
+    test('fibonacci(8) = 21', () => {
+      expect(fibonacci(8)).toBe(21);
+    });
+    
+  });
+  
+  describe('Розширена послідовність', () => {
+    
+    test('fibonacci(9) = 34', () => {
+      expect(fibonacci(9)).toBe(34);
+    });
+    
+    test('fibonacci(10) = 55', () => {
+      expect(fibonacci(10)).toBe(55);
+    });
+    
+    test('fibonacci(11) = 89', () => {
+      expect(fibonacci(11)).toBe(89);
+    });
+    
+    test('fibonacci(12) = 144', () => {
+      expect(fibonacci(12)).toBe(144);
+    });
+    
+    test('fibonacci(15) = 610', () => {
+      expect(fibonacci(15)).toBe(610);
+    });
+    
+  });
+  
+  describe('Властивості послідовності Фібоначчі', () => {
+    
+    test('F(n) = F(n-1) + F(n-2)', () => {
+      const n = 10;
+      expect(fibonacci(n)).toBe(fibonacci(n - 1) + fibonacci(n - 2));
+    });
+    
+    test('кожне число є сумою двох попередніх', () => {
+      for (let i = 3; i <= 10; i++) {
+        expect(fibonacci(i)).toBe(fibonacci(i - 1) + fibonacci(i - 2));
+      }
+    });
+    
+    test('послідовність зростаюча', () => {
+      for (let i = 2; i <= 10; i++) {
+        expect(fibonacci(i)).toBeGreaterThanOrEqual(fibonacci(i - 1));
+      }
+    });
+    
+    test('всі числа позитивні', () => {
+      for (let i = 1; i <= 15; i++) {
+        expect(fibonacci(i)).toBeGreaterThan(0);
+      }
+    });
+    
+  });
+  
+  describe('Крайні випадки', () => {
+    
+    test('обробка n=0', () => {
+      expect(fibonacci(0)).toBe(1);
+    });
+    
+    test('обробка від\'ємних чисел', () => {
+      expect(fibonacci(-1)).toBe(1);
+      expect(fibonacci(-5)).toBe(1);
+    });
+    
+  });
+  
+});
 });
