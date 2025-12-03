@@ -268,6 +268,14 @@ function getElement(array, index, fallback = null) {
   }
   return array[realIndex];
 }
+/**
+ * This function calculate Fibonacci sequence
+ * @param n
+ * @returns {*|number}
+ */
+function fibonacci(n) {
+  return (n > 2) ? fibonacci(n - 1) + fibonacci(n - 2) : 1;
+}
 
 module.exports = {
   sum,
@@ -285,5 +293,6 @@ module.exports = {
   splitString,
   hasSubString,
   isLowerCase,
-  getElement
+  getElement,
+  fibonacci
 };
